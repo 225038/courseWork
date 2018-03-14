@@ -1,0 +1,15 @@
+<div>
+Имя:
+  <input type="text" pInputText [(ngModel)]="userName"/><br/>
+Фамилия:
+  <input type="text" pInputText [(ngModel)]="userSurname"/><br/>
+Пароль:
+  <input type="text" pPassword [feedback]="false" [(ngModel)]="userPassword"/><br/>
+Логин:
+  <input type="text" pInputText [(ngModel)]="userLogin"/><br/>
+Почта:
+  <input type="text" pInputText [(ngModel)]="userEmail"/><br/>
+  <button pButton class="button1" (click)="register()" style="width: 10%" type="button" label="Регистрация" >Регистрация</button>
+  <a href="http://localhost:4200/auth">Авторизация</a>
+</div>
+<div class="regErr">{{ registrationError }}</div>

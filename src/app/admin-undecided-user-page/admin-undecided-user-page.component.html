@@ -1,0 +1,21 @@
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQohS1l9tu2X_xf1fMaRmPKSDKY5e2OXk5Dyr9AfllQlWS_5_7N">
+<p>
+  admin-undecided-user-page works!
+</p>
+<div *ngFor="let p of people; let i = index;" class="listElement">
+ {{i+1}} -  name:{{ p.name }} surname:{{ p.surname }} login:{{ p.login }}
+  <button (click)="approve(p)">Утвердить</button><br/>
+  <select [(ngModel)]="faculty">
+    <option>Грифиндор</option>
+    <option>Слизерин</option>
+    <option>Пуффендуй</option>
+    <option>Когтевран</option>
+  </select>
+  <select [(ngModel)]="status">
+    <option>Учитель</option>
+    <option>Ученик</option>
+    <option>Администратор</option>
+  </select>
+  {{faculty}} {{status}}
+</div>
+
