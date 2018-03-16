@@ -13,6 +13,7 @@ export class RegistrationPageComponent implements OnInit {
   userLogin: '';
   userPassword: '';
   userEmail: '';
+  userPasswordProve: '';
   registrationError: string;
   lastResponse: string;
 
@@ -40,6 +41,10 @@ export class RegistrationPageComponent implements OnInit {
     }
     if (this.userEmail === '') {
       this.registrationError = 'Отсутствует почта';
+      return;
+    }
+    if (this.userPassword !== this.userPasswordProve){
+      this.registrationError = 'Пароли не совпадают';
       return;
     }
 
