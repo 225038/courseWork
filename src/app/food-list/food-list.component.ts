@@ -11,15 +11,16 @@ import {OrderInfoComponent} from "../order-info/order-info.component";
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  personStatus: number;
+  isCooker: any;
   orderMsg: any;
   foods: Array<any>;
   constructor(private router: Router, private menuService: MenuService, private userService: UserService) { }
 
   ngOnInit() {
-    this.menuService.getAllFood().subscribe(data => {
-      this.foods = data;
-    })
+    this.refreshList();
+    this.userService.isCooker(this.userService.currentUser().name).subscribe(data =>{
+      this.isCooker = data;
+    });
   }
 
   order(food: Dish){
@@ -27,8 +28,11 @@ export class FoodListComponent implements OnInit {
     this.menuService.makeOrder(new BaseCooking(food.name,this.userService.currentUser().name)).subscribe(data => {
       console.log(data);
       this.orderMsg = data;
-
-
+    });
+  }
+  refreshList(){
+    this.menuService.getAllFood().subscribe(data => {
+      this.foods = data;
     });
   }
 

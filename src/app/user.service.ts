@@ -19,6 +19,19 @@ export class UserService {
     return this.http.post('http://localhost:8080/getStatusByLogin',login);
   }
   getPeopleByLogin(login: string){
-    return this.http.post('',login);
+    return this.http.post('http://localhost:8080/getPeopleByLogin',login);
+  }
+
+  isAdmin(login: string){
+    return this.http.post('http://localhost:8080/isAdmin',login);
+  }
+  isTeacher(login: string){
+    return this.http.post('http://localhost:8080/isTeacher',login);
+  }
+  isCooker(login: string){
+    return this.http.post('http://localhost:8080/isCooker',login);
+  }
+  isDoctor(login: string){
+    return this.http.post('http://localhost:8080/isDoctor',login);
   }
 }

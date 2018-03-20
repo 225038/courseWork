@@ -16,5 +16,9 @@ export class AccountPageComponent implements OnInit {
   ngOnInit() {
     this.login = this.userService.currentUser().name;
   }
+  logOut(){
+    this.userService.logOut();
+    this.router.navigate(['/auth']);
+  }
 
 }

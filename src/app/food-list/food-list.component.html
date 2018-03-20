@@ -1,3 +1,7 @@
+<p *ngIf="isCooker">
+  <button class="waves-effect waves-light btn" routerLink="/menu/orders">Перейти в меню заказов</button>
+  <button class="waves-effect waves-light btn" routerLink="/menu/manage">Перейти в меню редактирования</button>
+</p>
 <div *ngFor="let f of foods; let i = index;" >
   <div class="row">
     <div class="col s12 m6">
@@ -10,7 +14,7 @@
           <text>{{ f.cookingTime }}</text>
         </div>
         <div class="card-action">
-        <a class="order" mat-raised-button (click)="order(f)" >Заказать</a>
+        <a class="order"  (click)="order(f)" >Заказать</a>
         </div>
       </div>
     </div>

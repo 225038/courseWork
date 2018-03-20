@@ -30,14 +30,14 @@ export class BaseCooking{
 }
 export class Cooking{
   id: number;
-  personId: number;
-  dishId: number;
+  personLogin: string;
+  dish: string;
   ready: boolean;
   given: boolean;
 
-  constructor(personId: number, dishId: number, ready: boolean, id?: number){
-    this.personId = personId;
-    this.dishId = dishId;
+  constructor(personLogin: string, dish: string, ready: boolean, id?: number){
+    this.personLogin = personLogin;
+    this.dish = dish;
     this.ready = ready;
     this.id = id;
   }
@@ -45,11 +45,11 @@ export class Cooking{
   getId(){
     return this.id;
   }
-  getPersonId(){
-    return this.personId;
+  getPersonLogin(){
+    return this.personLogin;
   }
-  getDishId(){
-    return this.dishId;
+  getDish(){
+    return this.dish;
   }
   getReady(){
     return this.ready;
@@ -57,11 +57,11 @@ export class Cooking{
   setId(id: number){
     this.id = id;
   }
-  setPersonId(personId: number){
-    this.personId = personId;
+  setPersonLogin(personLogin: string){
+    this.personLogin = personLogin;
   }
-  setDishId(dishId: number){
-    this.dishId = dishId;
+  setDish(dish: string){
+    this.dish = dish;
   }
   setReady(ready: boolean){
     this.ready = ready;
@@ -121,5 +121,23 @@ export class MenuService {
 
   makeOrder(cooking: BaseCooking){
     return this.http.post('http://localhost:8080/createFoodOrder',cooking);
+  }
+  deleteDish(food: Dish){
+    return this.http.post('http://localhost:8080/deleteDish',food);
+  }
+  editDish(food: Dish){
+    return this.http.post('http://localhost:8080/editDish',food);
+  }
+  addDish(food:Dish){
+    return this.http.post('http://localhost:8080/createNewDish',food);
+  }
+  getAllCookings(login: string): Observable<any>{
+    return this.http.post('http://localhost:8080/getPersonCooking',login);
+  }
+  setCookingReady(c: Cooking){
+    return this.http.post('http://localhost:8080/setCookingReady',c);
+  }
+  setCookingGiven(c: Cooking){
+    return this.http.post('http://localhost:8080/setCookingGiven',c);
   }
 }

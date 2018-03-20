@@ -24,6 +24,7 @@ import { AccountPageComponent } from './account-page/account-page.component';
 import {UserService} from "./user.service";
 import {StatusGuard} from "./status.guard";
 import { OrderInfoComponent } from './order-info/order-info.component';
+import { FoodAddComponent } from './food-add/food-add.component';
 
 const routes = [
   {path: 'registration', component: RegistrationPageComponent},
@@ -39,6 +40,8 @@ const routes = [
   {path: 'news', canActivate: [StatusGuard], component: ProrokComponent},
   {path: 'hospital', canActivate: [StatusGuard], component: HospitalPageComponent},
   {path: 'raids', canActivate: [StatusGuard], component: RaidPageComponent},
+  {path: 'menu/add', canActivate: [StatusGuard], component: FoodAddComponent},
+  {path: 'menu/orders',canActivate: [StatusGuard], component: OrderInfoComponent}
 ];
 
 @NgModule({
@@ -57,23 +60,17 @@ const routes = [
     ProrokComponent,
     RaidPageComponent,
     AccountPageComponent,
-    OrderInfoComponent
+    OrderInfoComponent,
+    FoodAddComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), BrowserModule,
-    RouterModule.forRoot(routes), HttpClientModule , FormsModule
+    RouterModule.forRoot(routes), HttpClientModule , FormsModule,
   ],
   providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
+
 })
 export class AppModule {
-  isMain: boolean;
-  isLazaret: boolean;
-  isMenu: boolean;
-  isLC: boolean;
-  isProrok: boolean;
-  isRaid: boolean;
-
-
 }
