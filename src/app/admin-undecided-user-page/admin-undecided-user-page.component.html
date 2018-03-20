@@ -2,20 +2,14 @@
 <p>
   admin-undecided-user-page works!
 </p>
-<div *ngFor="let p of people; let i = index;" class="listElement">
- {{i+1}} -  name:{{ p.name }} surname:{{ p.surname }} login:{{ p.login }}
-  <button (click)="approve(p)">Утвердить</button><br/>
-  <select [(ngModel)]="faculty">
-    <option>Грифиндор</option>
-    <option>Слизерин</option>
-    <option>Пуффендуй</option>
-    <option>Когтевран</option>
-  </select>
-  <select [(ngModel)]="status">
-    <option>Учитель</option>
-    <option>Ученик</option>
-    <option>Администратор</option>
-  </select>
+<div *ngFor="let p of people; let i = index;" >
+  <div class="headerElement">Name:</div>
+  <div class="listElement">{{ p.name }}</div>
+  <div class="headerElement"> Surname: </div>
+  <div class="listElement"> {{ p.surname }} </div>
+  <div class="headerElement">Login:</div>
+  <div class="listElement">{{ p.login }}</div>
+  <button (click)="approve(p)" class="waves-effect waves-light btn">Утвердить</button>
   {{faculty}} {{status}}
 </div>
 

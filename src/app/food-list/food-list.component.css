@@ -1,0 +1,15 @@
+.listElement {
+
+  font-size: 12pt;
+  color: #aadce6;
+}
+.order {
+  font-family: Arial, Charcoal, sans-serif;
+  font-size: 13.5pt;
+  color: #aadce6;
+  align: center;
+}
+.header {
+  text-decoration: underline;
+  text-decoration-color: black;
+}

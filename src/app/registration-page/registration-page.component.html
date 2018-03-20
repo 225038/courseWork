@@ -1,4 +1,5 @@
-<div>
+<br/>
+<div class="registrationFilds">
 Имя:
   <input type="text" pInputText [(ngModel)]="userName"/><br/>
 Фамилия:
@@ -11,7 +12,7 @@
   <input type="text" pInputText [(ngModel)]="userLogin"/><br/>
 Почта:
   <input type="text" pInputText [(ngModel)]="userEmail"/><br/>
-  <button pButton class="button1" (click)="register()" style="width: 10%" type="button" label="Регистрация" >Регистрация</button>
-  <a href="http://localhost:4200/auth">Авторизация</a>
 </div>
+<button pButton class="waves-effect waves-light btn" (click)="register()"  type="button" label="Регистрация" >Регистрация</button><br/>
+<a routerLink="/auth">Авторизация</a>
 <div class="regErr">{{ registrationError }}</div>

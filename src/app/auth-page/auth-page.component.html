@@ -1,9 +1,9 @@
 <div>
-  Логин:
+  Логин или почта:
   <input type="text" pInputText [(ngModel)]="userLogin"/><br/>
   Пароль:
   <input type="text" pInputText [feedback]="false" [(ngModel)]="userPassword"/><br/>
-  <button pButton class="button1" (click)="auth()" style="width: 10%" type="button" label="Войти" >Войти</button>
-  <a href="http://localhost:4200/registration">Регистрация</a>
+  <button pButton class="waves-effect waves-light btn" (click)="auth()" style="width: 10%" type="button" label="Войти" >Войти</button>
+  <a routerLink="/registration">Регистрация</a>
 </div>
 {{error}}
