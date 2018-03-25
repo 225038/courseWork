@@ -36,7 +36,7 @@ export class Raid {
   isActive: boolean;
   points: number;
 
-  constructor(name: string, description: string,numberOfRequiredStudents: number, points: number) {
+  constructor(name: string, description: string, numberOfRequiredStudents: number, points: number) {
     this.numberOfRequiredStudents = numberOfRequiredStudents;
     this.name = name;
     this.description = description;
