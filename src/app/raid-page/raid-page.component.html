@@ -1,3 +1,20 @@
-<p>
-  raid-page works!
+<p *ngIf="isTeacher">
+  <button class="waves-effect waves-light btn" routerLink="/raids/list">Посмотреть спиок отозвавшихся</button>
+  <button class="waves-effect waves-light btn" routerLink="/raids/manage">Перейти в меню редактирования</button>
 </p>
+ <div *ngFor="let r of raids; let i = index;" >
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">{{ r.name }}</span>
+            <text class="listElement"> Описание:</text>
+            <text>{{ r.description }}</text>
+          </div>
+          <div class="card-action">
+            <a class="order"  (click)="respond(r)" >Откликнуться</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -25,6 +25,14 @@ import {UserService} from "./user.service";
 import {StatusGuard} from "./status.guard";
 import { OrderInfoComponent } from './order-info/order-info.component';
 import { FoodAddComponent } from './food-add/food-add.component';
+import {RaidService} from "./raid.service";
+import {MenuGuard} from "./menu.guard";
+import {HospitalGuard} from "./hospital.guard";
+import {RaidGuard} from "./raid.guard";
+import { RaidAddComponent } from './raid-add/raid-add.component';
+import { RaidManageComponent } from './raid-manage/raid-manage.component';
+import { RaidEditComponent } from './raid-edit/raid-edit.component';
+import { RaidListComponent } from './raid-list/raid-list.component';
 
 const routes = [
   {path: 'registration', component: RegistrationPageComponent},
@@ -32,16 +40,20 @@ const routes = [
   {path: 'auth', component: AuthPageComponent},
   {path: 'undecidedUsers', component: AdminUndecidedUserPageComponent},
   {path: 'menu/component', canActivate: [StatusGuard], component: FoodComponentComponent},
-  {path: 'menu/edit', canActivate: [StatusGuard], component: FoodEditComponent},
+  {path: 'menu/edit', canActivate: [MenuGuard], component: FoodEditComponent},
   {path: 'menu', canActivate: [StatusGuard], component: FoodListComponent},
-  {path: 'menu/manage', component: FoodManagmentComponent},
+  {path: 'menu/manage', canActivate: [MenuGuard],component: FoodManagmentComponent},
   {path: '', component: MainPageComponent},
   {path: 'acc', canActivate: [StatusGuard], component: AccountPageComponent},
   {path: 'news', canActivate: [StatusGuard], component: ProrokComponent},
   {path: 'hospital', canActivate: [StatusGuard], component: HospitalPageComponent},
   {path: 'raids', canActivate: [StatusGuard], component: RaidPageComponent},
-  {path: 'menu/add', canActivate: [StatusGuard], component: FoodAddComponent},
-  {path: 'menu/orders',canActivate: [StatusGuard], component: OrderInfoComponent}
+  {path: 'menu/add', canActivate: [MenuGuard], component: FoodAddComponent},
+  {path: 'menu/orders',canActivate: [MenuGuard], component: OrderInfoComponent},
+  {path: 'raids/add',canActivate: [RaidGuard], component: RaidAddComponent},
+  {path: 'raids/manage',canActivate: [RaidGuard], component: RaidManageComponent},
+  {path: 'raids/list',canActivate: [RaidGuard], component: RaidListComponent},
+  {path: 'raids/edit',canActivate: [RaidGuard], component: RaidEditComponent}
 ];
 
 @NgModule({
@@ -61,13 +73,17 @@ const routes = [
     RaidPageComponent,
     AccountPageComponent,
     OrderInfoComponent,
-    FoodAddComponent
+    FoodAddComponent,
+    RaidAddComponent,
+    RaidManageComponent,
+    RaidEditComponent,
+    RaidListComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), BrowserModule,
     RouterModule.forRoot(routes), HttpClientModule , FormsModule,
   ],
-  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard],
+  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard, RaidService, MenuGuard, HospitalGuard, RaidGuard],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
 

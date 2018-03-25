@@ -9,6 +9,9 @@ import {Dish, MenuService} from "../menu.service";
 })
 export class FoodAddComponent implements OnInit {
 
+  nonRequest = true;
+  isAdded: boolean;
+  result: string;
   name: string;
   description: string;
   time: string;
@@ -19,7 +22,19 @@ export class FoodAddComponent implements OnInit {
 
   add(){
     this.menuService.addDish(new Dish(this.name,this.description,this.time)).subscribe(e =>{
-      console.log(e);
+      this.nonRequest = false;
+      if(e == 'OK'){
+        this.name = '';
+        this.description = '';
+        this.time = '';
+        this.result = 'Блюдо было добавлено';
+        this.isAdded = true;
+      }else{
+        this.isAdded = false;
+        this.result = 'Блюдо с таким названием уже имеется в ассортименте';
+      }
+
+
       }
     );
   }

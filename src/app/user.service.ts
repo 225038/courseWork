@@ -34,4 +34,7 @@ export class UserService {
   isDoctor(login: string){
     return this.http.post('http://localhost:8080/isDoctor',login);
   }
+  getPeopleHealth(login: string){
+    return this.http.post('http://localhost:8080/getHealth',login);
+  }
 }
