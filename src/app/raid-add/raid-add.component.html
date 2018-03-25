@@ -1,0 +1,20 @@
+<p>
+  Название:<input type="text"  [(ngModel)]="name">
+  Описание:<input type="text"  [(ngModel)]="description">
+  Необходимое кличество человек:<input type="text"  [(ngModel)]="number">
+  Уровень усталости:<input type="text"  [(ngModel)]="fatigue">
+  Минимальное :<input type="text"  [(ngModel)]="minHealth">
+  Описание:<input type="text"  [(ngModel)]="maxHealth">
+  <button class="waves-effect waves-light btn" (click)="add()">Добавить</button>
+</p>
+<div *ngIf="!(nonRequest)">
+  <div *ngIf="!(isAdded)" class="isa_error">
+    <i class="fa fa-times-circle"></i>
+    {{ result }}
+  </div>
+  <div *ngIf="isAdded" class="isa_success">
+    <i class="fa fa-check"></i>
+    {{ result }}
+  </div>
+</div>
+<button class="waves-effect waves-light btn" routerLink="/raids/manage">Вернуться в меню управления</button>
