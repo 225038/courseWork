@@ -12,4 +12,4 @@ describe('RaidService', () => {
   it('should be created', inject([RaidService], (service: RaidService) => {
     expect(service).toBeTruthy();
   }));
-});
+}) ;

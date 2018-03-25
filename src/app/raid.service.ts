@@ -103,5 +103,8 @@ export class RaidService {
   addRaid(raid: Raid){
     return this.http.post('http://localhost:8080/addNewRaid',raid);
   }
+  getPersonalRaids(login: string): Observable<any>{
+    return this.http.post('http://localhost:8080/getAllRaidsByName',login);
+  }
 
 }
