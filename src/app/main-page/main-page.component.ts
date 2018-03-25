@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {UserService} from "../user.service";
+import {Router} from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-main-page',
@@ -14,10 +14,10 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  helloUser(){
-    console.log(this.userService.currentUser().name,' - this is current user');
+  helloUser() {
+    console.log(this.userService.currentUser().name, ' - this is current user');
   }
-  logOut(){
+  logOut() {
     this.userService.logOut();
   }
 }

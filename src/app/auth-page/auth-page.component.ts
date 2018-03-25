@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthPageService} from "./auth-page.service";
-import {People} from "../registration-page/registration.service";
-import {Router} from "@angular/router";
-import {UserService} from "../user.service";
+import {AuthPageService} from './auth-page.service';
+import {People} from '../registration-page/registration.service';
+import {Router} from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -21,16 +21,16 @@ export class AuthPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  auth(){
-    if (this.userLogin === ''){
+  auth() {
+    if (this.userLogin === '') {
       this.lastResponse = 'Поле логин не должно быть пустым';
       return;
     }
-    if (this.userPassword === ''){
+    if (this.userPassword === '') {
       this.lastResponse = 'Поле пароль не должно быть пустым';
       return;
     }
-    this.authPageService.authUser(new People(this.userLogin, this.userPassword,'-1','-1','-1')).subscribe( response => {
+    this.authPageService.authUser(new People(this.userLogin, this.userPassword, '-1', '-1', '-1')).subscribe( response => {
       this.lastResponse = response.body.toString();
       if (this.lastResponse === 'NOT_FOUND') {
         this.error = 'Пользователя с данным логином не существует';
@@ -41,10 +41,10 @@ export class AuthPageComponent implements OnInit {
       if (this.lastResponse === 'FORBIDDEN'){
         this.error = 'Вашу заявку еще не рассмотрели. Оповещение о результате придёт вам на почту';
       }
-      if(this.lastResponse === 'FOUND') {
+      if (this.lastResponse === 'FOUND') {
         this.error = 'Авторизация прошла успешно';
         this.userService.login(this.userLogin);
-        this.router.navigate(['/acc']);
+        this.router.navigate(['/main']);
       }
       console.log(this.lastResponse);
       this.lastResponse = '';

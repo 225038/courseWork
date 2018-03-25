@@ -17,13 +17,13 @@ export class RaidPageComponent implements OnInit {
 
   ngOnInit() {
     this.getAllRaids();
-    this.userService.isTeacher(this.userService.currentUser().name).subscribe(data =>{
+    this.userService.isTeacher(this.userService.currentUser().name).subscribe(data => {
       this.isTeacher = data;
     });
   }
 
   getAllRaids(){
-    this.raidService.getAllRaids().subscribe(data =>{
+    this.raidService.getAllRaids().subscribe(data => {
       this.raids = data;
     });
   }

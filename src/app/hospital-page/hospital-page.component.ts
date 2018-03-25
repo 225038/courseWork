@@ -16,7 +16,7 @@ export class HospitalPageComponent implements OnInit {
   ngOnInit() {
     this.userService.getPeopleHealth(this.userService.currentUser().name).subscribe(data =>{
       this.health = data;
-    })
+    });
   }
 
 }

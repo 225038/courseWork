@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import {AdminServiceService} from "../admin-service.service";
 import {Router} from "@angular/router";
 import {People} from "../registration-page/registration.service";
@@ -19,7 +19,7 @@ export class AdminUndecidedUserPageComponent implements OnInit {
     this.refreshList();
   }
 
-  print(p: People,index){
+  print(p: People, index) {
     this.adminService.approoveUser(p);
     this.refreshList();
 

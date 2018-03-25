@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import {People} from "./registration-page/registration.service";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {People} from './registration-page/registration.service';
 
 export class BaseCooking{
   private dishName: string;
@@ -97,7 +97,7 @@ export class Dish {
   getCookingTime(){
     return this.cookingTime;
   }
-  setName(name:string){
+  setName(name: string){
     this.name = name;
   }
   setDescription(description: string){
@@ -120,24 +120,24 @@ export class MenuService {
   }
 
   makeOrder(cooking: BaseCooking){
-    return this.http.post('http://localhost:8080/createFoodOrder',cooking);
+    return this.http.post('http://localhost:8080/createFoodOrder', cooking);
   }
   deleteDish(food: Dish){
-    return this.http.post('http://localhost:8080/deleteDish',food);
+    return this.http.post('http://localhost:8080/deleteDish', food);
   }
   editDish(food: Dish){
-    return this.http.post('http://localhost:8080/editDish',food);
+    return this.http.post('http://localhost:8080/editDish', food);
   }
-  addDish(food:Dish){
-    return this.http.post('http://localhost:8080/createNewDish',food);
+  addDish(food: Dish){
+    return this.http.post('http://localhost:8080/createNewDish', food);
   }
   getAllCookings(login: string): Observable<any>{
-    return this.http.post('http://localhost:8080/getPersonCooking',login);
+    return this.http.post('http://localhost:8080/getPersonCooking', login);
   }
   setCookingReady(c: Cooking){
-    return this.http.post('http://localhost:8080/setCookingReady',c);
+    return this.http.post('http://localhost:8080/setCookingReady', c);
   }
   setCookingGiven(c: Cooking){
-    return this.http.post('http://localhost:8080/setCookingGiven',c);
+    return this.http.post('http://localhost:8080/setCookingGiven', c);
   }
 }
