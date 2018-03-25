@@ -33,6 +33,9 @@ import { RaidAddComponent } from './raid-add/raid-add.component';
 import { RaidManageComponent } from './raid-manage/raid-manage.component';
 import { RaidEditComponent } from './raid-edit/raid-edit.component';
 import { RaidListComponent } from './raid-list/raid-list.component';
+import {NewsService} from "./news.service";
+import { NewsAddComponent } from './news-add/news-add.component';
+import {AdminGuard} from "./admin.guard";
 
 const routes = [
   {path: 'registration', component: RegistrationPageComponent},
@@ -53,7 +56,8 @@ const routes = [
   {path: 'raids/add',canActivate: [RaidGuard], component: RaidAddComponent},
   {path: 'raids/manage',canActivate: [RaidGuard], component: RaidManageComponent},
   {path: 'raids/list',canActivate: [RaidGuard], component: RaidListComponent},
-  {path: 'raids/edit',canActivate: [RaidGuard], component: RaidEditComponent}
+  {path: 'raids/edit',canActivate: [RaidGuard], component: RaidEditComponent},
+  {path: 'news/add',canActivate: [AdminGuard], component: NewsAddComponent}
 ];
 
 @NgModule({
@@ -77,13 +81,14 @@ const routes = [
     RaidAddComponent,
     RaidManageComponent,
     RaidEditComponent,
-    RaidListComponent
+    RaidListComponent,
+    NewsAddComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), BrowserModule,
     RouterModule.forRoot(routes), HttpClientModule , FormsModule,
   ],
-  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard, RaidService, MenuGuard, HospitalGuard, RaidGuard],
+  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard, RaidService, MenuGuard, HospitalGuard, RaidGuard , NewsService, AdminGuard],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
 

@@ -1,3 +1,17 @@
-<p>
-  prorok works!
+<p *ngIf="isAdmin">
+  <button class="waves-effect waves-light btn" routerLink="/news/add">Добавить новость</button>
 </p>
+<div *ngFor="let c of news; let i = index;">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="header">{{ c.name}}</span>
+          <div class="card-action">
+          <text>{{ c.description }}</text><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<p>
+  Название:<input type="text"  [(ngModel)]="name">
+  Контент:<input type="text"  [(ngModel)]="content">
+  <button class="waves-effect waves-light btn" (click)="add()">Добавить</button>
+</p>
+<div *ngIf="!(nonRequest)">
+  <div *ngIf="!(isAdded)" class="isa_error">
+    <i class="fa fa-times-circle"></i>
+    {{ result }}
+  </div>
+  <div *ngIf="isAdded" class="isa_success">
+    <i class="fa fa-check"></i>
+    {{ result }}
+  </div>
+</div>
+<p>
+  <button class="waves-effect waves-light btn" routerLink="/news">Вернуться к новостям</button>
+</p>

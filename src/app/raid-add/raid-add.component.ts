@@ -34,11 +34,11 @@ export class RaidAddComponent implements OnInit {
           this.number = '';
           this.maxHealth = '';
           this.minHealth = '';
-          this.result = 'Блюдо было добавлено';
+          this.result = 'Задание было добавлено';
           this.isAdded = true;
         }else{
           this.isAdded = false;
-          this.result = 'Блюдо с таким названием уже имеется в ассортименте';
+          this.result = 'Задание с таким названием уже существует';
         }
 
 
