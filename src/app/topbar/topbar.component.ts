@@ -3,22 +3,21 @@ import {Router} from '@angular/router';
 import {UserService} from '../user.service';
 
 @Component({
-  selector: 'app-account-page',
-  templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.css']
+  selector: 'app-main-page',
+  templateUrl: './topbar.component.html',
+  styleUrls: ['./topbar.component.css']
 })
-export class AccountPageComponent implements OnInit {
-
-  login: string;
+export class TopbarComponent implements OnInit {
 
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    this.login = this.userService.currentUser().name;
+  }
+
+  helloUser() {
+    console.log(this.userService.currentUser().name, ' - this is current user');
   }
   logOut() {
     this.userService.logOut();
-    this.router.navigate(['/auth']);
   }
-
 }

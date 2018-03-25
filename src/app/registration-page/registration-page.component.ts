@@ -43,7 +43,7 @@ export class RegistrationPageComponent implements OnInit {
       this.registrationError = 'Отсутствует почта';
       return;
     }
-    if (this.userPassword !== this.userPasswordProve){
+    if (this.userPassword !== this.userPasswordProve) {
       this.registrationError = 'Пароли не совпадают';
       return;
     }
@@ -54,7 +54,7 @@ export class RegistrationPageComponent implements OnInit {
         this.registrationError = 'Данный логин уже занят';
         return;
       }
-      if (this.lastResponse === 'BAD_REQUEST'){
+      if (this.lastResponse === 'BAD_REQUEST') {
         this.registrationError = 'Неправльная почта';
         return;
       }
@@ -69,7 +69,7 @@ export class RegistrationPageComponent implements OnInit {
       console.log(this.lastResponse);
       this.lastResponse = '';
       this.userLogin = '';
-      this.userEmail= '';
+      this.userEmail = '';
       this.userName = '';
       this.userSurname = '';
       this.userPassword = '';

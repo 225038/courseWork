@@ -1,0 +1,18 @@
+<!--<button (click)="helloUser()">Получить приветствие</button>-->
+<!--<button (click)="logOut()">Выйти</button>-->
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div>
+  <ul class="menu-main">
+    <li><a [routerLink]="['/main']" onclick="setElementClass('current')">Главная</a></li>
+    <li><a [routerLink]="['hospital']">Лазарет</a></li>
+    <li><a [routerLink]="['news']">Школьный Пророк</a></li>
+    <li><a [routerLink]="['raids']">Рейды</a></li>
+    <li><a [routerLink]="['menu']">Меню</a></li>
+    <li><a [routerLink]="['acc']">Личный кабинет</a></li>
+    <li><a [routerLink]="['']" (click)="logOut()">Выйти</a></li>
+  </ul>
+</div>
+
+
+<router-outlet></router-outlet>

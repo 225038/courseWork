@@ -1,18 +1,13 @@
-<br/>
-<div class="registrationFilds">
-Имя:
-  <input type="text" pInputText [(ngModel)]="userName"/><br/>
-Фамилия:
-  <input type="text" pInputText [(ngModel)]="userSurname"/><br/>
-Пароль:
-  <input type="text" pPassword [feedback]="false" [(ngModel)]="userPassword"/><br/>
-Подтверждение пароля:
-  <input type="text" pPassword [feedback]="false" [(ngModel)]="userPasswordProve"/><br/>
-Логин:
-  <input type="text" pInputText [(ngModel)]="userLogin"/><br/>
-Почта:
-  <input type="text" pInputText [(ngModel)]="userEmail"/><br/>
+<div class="content">
+  <div class="registrationFilds">
+      <input type="text" pInputText [(ngModel)]="userName" placeholder="Имя"/><br/>
+      <input type="text" pInputText [(ngModel)]="userSurname" placeholder="Фамилия"/><br/>
+      <input type="password" pPassword [feedback]="false" placeholder="Пароль" [(ngModel)]="userPassword"/><br/>
+      <input type="password" pPassword [feedback]="false" placeholder="Подтверждение пароля" [(ngModel)]="userPasswordProve"/><br/>
+      <input type="text" pInputText  [(ngModel)]="userLogin" placeholder="Логин"/><br/>
+      <input type="text" pInputText placeholder="Почта" [(ngModel)]="userEmail"/><br/>
+  </div>
+  <button pButton class="waves-effect waves-light btn" (click)="register()"  type="button" label="Регистрация" >Регистрация</button><br/>
+  <a routerLink="/">Авторизация</a>
+  <div class="regErr">{{ registrationError }}</div>
 </div>
-<button pButton class="waves-effect waves-light btn" (click)="register()"  type="button" label="Регистрация" >Регистрация</button><br/>
-<a routerLink="/auth">Авторизация</a>
-<div class="regErr">{{ registrationError }}</div>

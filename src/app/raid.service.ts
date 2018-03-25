@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-export class RaidRespond{
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+export class RaidRespond {
   userName: string;
   raidName: string;
 
@@ -27,7 +27,7 @@ export class RaidRespond{
   }
 }
 
-export class Raid{
+export class Raid {
 
   name: string;
   description: string;
@@ -69,14 +69,14 @@ export class RaidService {
 
   constructor(private http: HttpClient) { }
 
-  getAllRaids(): Observable<any>{
+  getAllRaids(): Observable<any> {
     return this.http.get('http://localhost:8080/allRaids');
   }
   addRaid(raid: Raid){
-    return this.http.post('http://localhost:8080/addNewRaid',raid);
+    return this.http.post('http://localhost:8080/addNewRaid', raid);
   }
-  getPersonalRaids(login: string): Observable<any>{
-    return this.http.post('http://localhost:8080/getAllRaidsByName',login);
+  getPersonalRaids(login: string): Observable<any> {
+    return this.http.post('http://localhost:8080/getAllRaidsByName', login);
   }
   getAllRaidResponse(): Observable<any>{
     return this.http.get('http://localhost:8080/getAllRaidResponse');
