@@ -31,21 +31,17 @@ export class Raid{
 
   name: string;
   description: string;
-  expiredFatigue: number;
-  minExpiredHealth: number;
-  maxExpiredHealth: number;
   numberOfRequiredStudents: number;
   numberOfCurrentStudents: number;
   isActive: boolean;
+  points: number;
 
-  constructor(name: string, description: string,numberOfRequiredStudents: number, expiredFatigue: number, minExpiredHealth:number, maxExpiredHealth:number) {
+  constructor(name: string, description: string,numberOfRequiredStudents: number, points: number) {
     this.numberOfRequiredStudents = numberOfRequiredStudents;
     this.name = name;
     this.description = description;
     this.isActive = true;
-    this.expiredFatigue = expiredFatigue;
-    this.minExpiredHealth = minExpiredHealth;
-    this.maxExpiredHealth = maxExpiredHealth;
+    this.points = points;
   }
 
   getName(): string {
@@ -62,30 +58,6 @@ export class Raid{
 
   setDescription(value: string) {
     this.description = value;
-  }
-
-  getExpiredFatigue(): number {
-    return this.expiredFatigue;
-  }
-
-  setExpiredFatigue(value: number) {
-    this.expiredFatigue = value;
-  }
-
-  getMinExpiredHealth(): number {
-    return this.minExpiredHealth;
-  }
-
-  setMinExpiredHealth(value: number) {
-    this.minExpiredHealth = value;
-  }
-
-  getMaxExpiredHealth(): number {
-    return this.maxExpiredHealth;
-  }
-
-  setMaxExpiredHealth(value: number) {
-    this.maxExpiredHealth = value;
   }
 
   setNumberOfCurrentStudents(value: number) {
@@ -105,6 +77,18 @@ export class RaidService {
   }
   getPersonalRaids(login: string): Observable<any>{
     return this.http.post('http://localhost:8080/getAllRaidsByName',login);
+  }
+  getAllRaidResponse(): Observable<any>{
+    return this.http.get('http://localhost:8080/getAllRaidResponse');
+  }
+  respond(r: RaidRespond){
+    return this.http.post('http://localhost:8080/saveRaidRespond',r);
+  }
+  addPoints(r: RaidRespond){
+    return this.http.post('http://localhost:8080/addPoints',r);
+  }
+  close(r: string){
+    return this.http.post('http://localhost:8080/setRaidUnactive',r);
   }
 
 }

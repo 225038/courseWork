@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {RaidService} from "../raid.service";
+import {RaidRespond, RaidService} from "../raid.service";
 import {UserService} from "../user.service";
 
 @Component({
@@ -28,6 +28,12 @@ export class RaidPageComponent implements OnInit {
     });
   }
   respond(r){
-
+    this.raidService.respond(new RaidRespond(this.userService.currentUser().name, r.name)).subscribe(e =>{
+      if (!e){
+        window.alert('Вы уже зарегестрированы');
+      }else {
+        this.getAllRaids();
+      }
+    });
   }
 }

@@ -18,15 +18,16 @@ export class RaidAddComponent implements OnInit {
   number: string;
   minHealth: string;
   maxHealth: string;
+  points: string;
 
   constructor(private routes: Router, private userService: UserService, private raidService: RaidService) { }
 
   ngOnInit() {
   }
   add(){
-    this.raidService.addRaid(new Raid(this.name,this.description, +this.number, +this.fatigue, +this.minHealth, +this.maxHealth)).subscribe(e =>{
+    this.raidService.addRaid(new Raid(this.name,this.description, +this.number,+this.points)).subscribe(e =>{
         this.nonRequest = false;
-        if(e == 'OK'){
+        if(e){
           this.name = '';
           this.description = '';
           this.fatigue = '';
