@@ -7,7 +7,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   login(login: string) {
-    localStorage.setItem('currentUser', JSON.stringify({token: 'jwt will come later', name: login}));
+    localStorage.setItem('currentUser', JSON.stringify({token: Math.random(), name: login}));
   }
   currentUser() {
     return JSON.parse(localStorage.getItem('currentUser'));
