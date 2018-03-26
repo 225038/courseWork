@@ -1,4 +1,3 @@
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQohS1l9tu2X_xf1fMaRmPKSDKY5e2OXk5Dyr9AfllQlWS_5_7N">
 <div *ngFor="let p of people; let i = index;" >
   <div class="headerElement">Name:</div>
   <div class="listElement">{{ p.name }}</div>
@@ -6,14 +5,38 @@
   <div class="listElement"> {{ p.surname }} </div>
   <div class="headerElement">Login:</div>
   <div class="listElement">{{ p.login }}</div>
-  <div>
-    <label>Colour</label>
-    <div>
-      <select [(ngModel)]="faculty">
-      <option > Каротшечка</option>
-      </select>
-    </div>
-  </div>
+  <table>
+    <tr>
+      <td>
+        <button (click)="setFaculty('Gryffindor')" class="waves-effect waves-light btn">Гриффиндор</button>
+      </td>
+      <td>
+        <button (click)="setFaculty('Huffelpuff')" class="waves-effect waves-light btn">Пуфендуй</button>
+      </td>
+      <td>
+        <button (click)="setFaculty('Ravenclaw')" class="waves-effect waves-light btn">Когтевран</button>
+      </td>
+      <td>
+        <button (click)="setFaculty('Slytherin')" class="waves-effect waves-light btn">Слизерин</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="setStatus(1)" class="waves-effect waves-light btn">Ученик</button>
+      </td>
+      <td>
+        <button (click)="setStatus(2)" class="waves-effect waves-light btn">Учитель</button>
+      </td>
+      <td>
+        <button (click)="setStatus(6)" class="waves-effect waves-light btn">Повар</button>
+      </td>
+      <td>
+        <button (click)="setStatus(5)" class="waves-effect waves-light btn">Админ</button>
+      </td>
+    </tr>
+  </table>
+
+
   <button (click)="approve(p)" class="waves-effect waves-light btn">Утвердить</button>
   {{faculty}} {{status}}
 </div>

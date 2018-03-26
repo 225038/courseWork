@@ -34,10 +34,16 @@ export class AdminUndecidedUserPageComponent implements OnInit {
 
   approve(p: People) {
     console.log('approve method');
-    this.adminService.approoveUser(new People(p.login,p.password,p.name,p.surname,p.email,'Hufflepuff',1)).subscribe( err =>{
+    this.adminService.approoveUser(new People(p.login,p.password,p.name,p.surname,p.email,this.faculty,this.status)).subscribe( err =>{
       console.log(err);
       this.refreshList();
     });
+  }
+  setStatus(status){
+    this.status = status;
+  }
+  setFaculty(name){
+    this.faculty = name;
   }
 
 }

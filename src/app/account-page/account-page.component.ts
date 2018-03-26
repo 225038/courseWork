@@ -10,11 +10,16 @@ import {UserService} from '../user.service';
 export class AccountPageComponent implements OnInit {
 
   login: string;
+  userPoints: any;
 
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.login = this.userService.currentUser().name;
+    this.userService.getPeoplepoints(this.userService.currentUser().name).subscribe(data =>
+    {
+      this.userPoints = data;
+    });
   }
   logOut() {
     this.userService.logOut();
