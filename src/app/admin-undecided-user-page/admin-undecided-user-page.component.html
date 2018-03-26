@@ -1,7 +1,4 @@
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQohS1l9tu2X_xf1fMaRmPKSDKY5e2OXk5Dyr9AfllQlWS_5_7N">
-<p>
-  admin-undecided-user-page works!
-</p>
 <div *ngFor="let p of people; let i = index;" >
   <div class="headerElement">Name:</div>
   <div class="listElement">{{ p.name }}</div>
@@ -9,6 +6,14 @@
   <div class="listElement"> {{ p.surname }} </div>
   <div class="headerElement">Login:</div>
   <div class="listElement">{{ p.login }}</div>
+  <div>
+    <label>Colour</label>
+    <div>
+      <select [(ngModel)]="faculty">
+      <option > Каротшечка</option>
+      </select>
+    </div>
+  </div>
   <button (click)="approve(p)" class="waves-effect waves-light btn">Утвердить</button>
   {{faculty}} {{status}}
 </div>

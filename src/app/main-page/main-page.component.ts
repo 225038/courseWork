@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../user.service';
+import {FacultyService} from "../faculty.service";
 
 @Component({
   selector: 'app-main-page',
@@ -9,9 +10,26 @@ import {UserService} from '../user.service';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private router: Router, private userService: UserService) { }
+  gryffPoints: any;
+  huffPoints: any;
+  ravenPoints: any;
+  slythPoints: any;
+
+  constructor(private router: Router, private userService: UserService, private facultyService: FacultyService) { }
 
   ngOnInit() {
+    this.facultyService.getGryffPoint().subscribe(data =>{
+      this.gryffPoints = data;
+    });
+    this.facultyService.getHuffPoint().subscribe(data =>{
+      this.huffPoints = data;
+    });
+    this.facultyService.getRavenPoint().subscribe(data =>{
+      this.ravenPoints = data;
+    });
+    this.facultyService.getSluthPoint().subscribe(data =>{
+      this.slythPoints = data;
+    });
   }
 
   helloUser() {

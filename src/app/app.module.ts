@@ -36,11 +36,13 @@ import { RaidListComponent } from './raid-list/raid-list.component';
 import {NewsService} from "./news.service";
 import { NewsAddComponent } from './news-add/news-add.component';
 import {AdminGuard} from "./admin.guard";
+import { NotificationFoodComponent } from './notification-food/notification-food.component';
+import {FacultyService} from "./faculty.service";
 
 const routes = [
   {path: 'registration', component: RegistrationPageComponent},
   {path: '', component: AuthPageComponent},
-  {path: 'undecidedUsers', component: AdminUndecidedUserPageComponent},
+  {path: 'undecidedUsers', canActivate: [AdminGuard],component: AdminUndecidedUserPageComponent},
   {path: 'main', canActivate: [StatusGuard], component: TopbarComponent,
   children: [
     {path: 'menu/component', canActivate: [StatusGuard], component: FoodComponentComponent},
@@ -58,7 +60,8 @@ const routes = [
     {path: 'raids/manage', canActivate: [RaidGuard], component: RaidManageComponent},
     {path: 'raids/list', canActivate: [RaidGuard], component: RaidListComponent},
     {path: 'raids/edit', canActivate: [RaidGuard], component: RaidEditComponent},
-    {path: 'news/add',canActivate: [AdminGuard], component: NewsAddComponent}
+    {path: 'news/add',canActivate: [AdminGuard], component: NewsAddComponent},
+    {path: 'main/acc', component: NotificationFoodComponent, outlet: 'foodNotification'}
     ]},
 ];
 
@@ -83,15 +86,16 @@ const routes = [
     RaidManageComponent,
     RaidEditComponent,
     RaidListComponent,
-    NewsAddComponent
+    NewsAddComponent,
+    TopbarComponent,
+    NotificationFoodComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), BrowserModule,
     RouterModule.forRoot(routes), HttpClientModule , FormsModule,
   ],
-  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard, RaidService, MenuGuard, HospitalGuard, RaidGuard , NewsService, AdminGuard],
-  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard,
-    RaidService, MenuGuard, HospitalGuard, RaidGuard],
+  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard, RaidService, MenuGuard, HospitalGuard, RaidGuard , NewsService, AdminGuard, FacultyService
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
 
