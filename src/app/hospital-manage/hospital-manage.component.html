@@ -1,0 +1,28 @@
+<div class="content">
+  <p *ngIf="isDoctor">
+    <a class="waves-effect waves-light btn" routerLink="/main/hospital/list">Запись на прием</a>
+    <a class="waves-effect waves-light btn" routerLink="/main/hospital">К списку больных</a>
+  </p>
+  <table class="table_blur">
+    <tr>
+      <th>Больной</th>
+      <th>Болезнь</th>
+      <th>Заметки врача</th>
+      <th>Сохранить изменения</th>
+    </tr>
+    <tr *ngFor="let ill of illnesses">
+      <td>
+        <text>{{ill.person}}</text><br/>
+      </td>
+      <td>
+        <input type="text" value="{{ ill.illness }}" ngModel="{{ illness }}"><br/>
+      </td>
+      <td>
+        <input type="text" value="{{ ill.comments }}" ngModel="{{ comments }}">
+      </td>
+      <td>
+        <button class="waves-effect waves-light btn" style="background: #715c69">Сохранить изменения</button>
+      </td>
+    </tr>
+  </table>
+</div>

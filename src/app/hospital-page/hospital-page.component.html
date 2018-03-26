@@ -1,3 +1,31 @@
-<p>
-  Ваше здоровье равно {{ health }}
-</p>
+<div class="content">
+  <p>Уважаемые заболевшие, не забывайте записываться на прием! Без записи врач не принимает.</p>
+  <p>Либо запись, либо подорожник в саду... Но лучше не болейте.</p>
+  <p *ngIf="isDoctor">
+    <a class="waves-effect waves-light btn" routerLink="list">Запись на прием</a>
+    <!--<a class="waves-effect waves-light btn" routerLink="manage">Перейти в меню редактирования</a>-->
+  </p>
+  <table class="table_blur">
+    <tr>
+      <th>Больной</th>
+      <th>Болезнь</th>
+      <th>Заметки врача</th>
+    </tr>
+    <tr *ngFor="let ill of illnesses">
+        <td>
+            <text>{{ill.person}}</text><br/>
+        </td>
+        <td>
+            <text>{{ ill.illness }}</text><br/>
+        </td>
+        <td>
+            <text>{{ ill.comments }}</text>
+        </td>
+    </tr>
+  </table>
+
+  <div style="margin: 4%">
+    <input type="text" id="complaint" placeholder="Жалоба" [(ngModel)]="complaint">
+    <button class="waves-effect waves-light btn" (click)="toIllness()" style="background: #715c69">Записаться на прием</button>
+  </div>
+</div>

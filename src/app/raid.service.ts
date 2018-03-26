@@ -82,13 +82,13 @@ export class RaidService {
     return this.http.get('http://localhost:8080/getAllRaidResponse');
   }
   respond(r: RaidRespond){
-    return this.http.post('http://localhost:8080/saveRaidRespond',r);
+    return this.http.post('http://localhost:8080/saveRaidRespond', r);
   }
   addPoints(r: RaidRespond){
-    return this.http.post('http://localhost:8080/addPoints',r);
+    return this.http.post('http://localhost:8080/addPoints', r);
   }
   close(r: string){
-    return this.http.post('http://localhost:8080/setRaidUnactive',r);
+    return this.http.post('http://localhost:8080/setRaidUnactive', r);
   }
 
 }

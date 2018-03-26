@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { MenuService } from './menu.service';
 
-describe('MenuService', () => {
+describe('HospitalService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MenuService]

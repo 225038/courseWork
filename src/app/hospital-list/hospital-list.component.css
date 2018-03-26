@@ -8,13 +8,6 @@
   text-align: center;
 }
 
-.order {
-  font-family: Arial, Charcoal, sans-serif;
-  font-size: 13.5pt;
-  color: #9a9a9a;
-  align: center;
-}
-
 .table_blur {
   background: rgba(0, 0, 0, 0);
   border-collapse: collapse;
@@ -54,4 +47,11 @@
 .table_blur tbody:hover tr:hover td {
   color: #ebf3f9;
   text-shadow: none;
+}
+.sendErr{
+  color: #b33920;
+  /*text-align: center;*/
+  /*font: 2em Arial;*/
+  /*text-shadow: black 1px 1px 0, black -1px -1px 0,*/
+  /*black -1px 1px 0, black 1px -1px 0;*/
 }

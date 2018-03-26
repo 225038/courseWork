@@ -38,6 +38,9 @@ import { NewsAddComponent } from './news-add/news-add.component';
 import {AdminGuard} from "./admin.guard";
 import { NotificationFoodComponent } from './notification-food/notification-food.component';
 import {FacultyService} from "./faculty.service";
+import {HospitalService} from './hospital.service';
+import { HospitalManageComponent } from './hospital-manage/hospital-manage.component';
+import { HospitalListComponent } from './hospital-list/hospital-list.component';
 
 const routes = [
   {path: 'registration', component: RegistrationPageComponent},
@@ -52,7 +55,9 @@ const routes = [
     {path: '', canActivate: [StatusGuard], component: MainPageComponent},
     {path: 'acc', canActivate: [StatusGuard], component: AccountPageComponent},
     {path: 'news', canActivate: [StatusGuard], component: ProrokComponent},
-    {path: 'hospital', canActivate: [StatusGuard], component: HospitalPageComponent},
+    {path: 'hospital', canActivate: [HospitalGuard], component: HospitalPageComponent},
+    {path: 'hospital/manage', canActivate: [HospitalGuard], component: HospitalManageComponent},
+    {path: 'hospital/list', canActivate: [HospitalGuard], component: HospitalListComponent},
     {path: 'raids', canActivate: [StatusGuard], component: RaidPageComponent},
     {path: 'menu/add', canActivate: [MenuGuard], component: FoodAddComponent},
     {path: 'menu/orders', canActivate: [MenuGuard], component: OrderInfoComponent},
@@ -68,6 +73,7 @@ const routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    TopbarComponent,
     RegistrationPageComponent,
     AuthPageComponent,
     AdminUndecidedUserPageComponent,
@@ -88,17 +94,20 @@ const routes = [
     RaidListComponent,
     NewsAddComponent,
     TopbarComponent,
-    NotificationFoodComponent
+    NotificationFoodComponent,
+    RaidListComponent,
+    HospitalManageComponent,
+    HospitalListComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), BrowserModule,
     RouterModule.forRoot(routes), HttpClientModule , FormsModule,
   ],
-  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard, RaidService, MenuGuard, HospitalGuard, RaidGuard , NewsService, AdminGuard, FacultyService
+  providers: [RegistrationService, AuthPageService, AdminServiceService, MenuService, UserService, StatusGuard,
+    RaidService, MenuGuard, HospitalGuard, RaidGuard , NewsService, AdminGuard, FacultyService, HospitalService
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
-
 })
 export class AppModule {
 }

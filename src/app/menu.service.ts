@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {People} from './registration-page/registration.service';
 
-export class BaseCooking{
+export class BaseCooking {
   private dishName: string;
   private personLogin: string;
 

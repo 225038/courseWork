@@ -38,7 +38,7 @@ export class AuthPageComponent implements OnInit {
       if (this.lastResponse === 'EXPECTATION_FAILED'){
         this.error = 'Логин и пароль не совпадают';
       }
-      if (this.lastResponse === 'FORBIDDEN'){
+      if (this.lastResponse === 'FORBIDDEN') {
         this.error = 'Вашу заявку еще не рассмотрели. Оповещение о результате придёт вам на почту';
       }
       if (this.lastResponse === 'FOUND') {
@@ -53,5 +53,7 @@ export class AuthPageComponent implements OnInit {
     });
   }
 
-
+  public noVk() {
+    this.error = 'Социальные сети губят людей! Мы против них, и вам не позволим ими пользоваться!';
+  }
 }

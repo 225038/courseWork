@@ -1,15 +1,21 @@
 .listElement {
 
   font-size: 12pt;
-  color: #aadce6;
+  color: #9a9a9a;
 }
 .order {
   font-family: Arial, Charcoal, sans-serif;
   font-size: 13.5pt;
-  color: #aadce6;
+  color: #9a9a9a;
   align: center;
 }
+
 .header {
   text-decoration: underline;
-  text-decoration-color: black;
+  text-decoration-color: rgb(0, 0, 0);
 }
+
+.content {
+  background: rgba(0, 0, 0, 0.67);
+}
+

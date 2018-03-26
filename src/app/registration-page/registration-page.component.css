@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
-.regErr{
-  color: blue;
-  text-align: center;
-  font: 2em Arial;
-  text-shadow: black 1px 1px 0, black -1px -1px 0,
-  black -1px 1px 0, black 1px -1px 0;
+.sendErr{
+  color: #b33920;
+  /*text-align: center;*/
+  /*font: 2em Arial;*/
+  /*text-shadow: black 1px 1px 0, black -1px -1px 0,*/
+  /*black -1px 1px 0, black 1px -1px 0;*/
 }
 
 .content {
@@ -15,4 +15,8 @@
   /*margin: 20px;*/
   min-height: 600px;
   text-align: center;
+}
+
+a {
+  color: #bbb
 }

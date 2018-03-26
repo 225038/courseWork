@@ -63,7 +63,7 @@ export class RegistrationPageComponent implements OnInit {
         return;
       }
       if (this.lastResponse === 'OK') {
-        this.registrationError = 'Пользователь успешно зарегестрирован';
+        this.registrationError = 'Пользователь успешно зарегистрирован';
       }
 
       console.log(this.lastResponse);

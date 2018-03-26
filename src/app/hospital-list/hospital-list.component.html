@@ -1,0 +1,31 @@
+<div class="content">
+  <p *ngIf="isDoctor">
+    <!--<a class="waves-effect waves-light btn" routerLink="/main/hospital/manage">Перейти в меню редактирования</a>-->
+    <a class="waves-effect waves-light btn" routerLink="/main/hospital">Обратно к списку больных</a>
+  </p>
+  <table class="table_blur">
+    <tr>
+      <th>Пациент</th>
+      <th>Жалоба</th>
+    </tr>
+    <tr *ngFor="let ill of illnessPeople; let i = index;">
+      <td>
+        <text>{{ill.login}}</text>
+      </td>
+      <td>
+        <text>{{ ill.complaint }}</text>
+      </td>
+      <!--<td>-->
+        <!--<input type="text" [(ngModel)]="ill.illness"/>-->
+      <!--</td>-->
+      <!--<td>-->
+        <!--<input type="text" [(ngModel)]="ill.comments"/>-->
+      <!--</td>-->
+      <!--<td>-->
+        <!--<input type="button" class="waves-effect waves-light btn" (click)="toHospital()" style="background: #715c69" value="Отправить в лазарет"/>-->
+        <!--<input type="button" class="waves-effect waves-light btn" (click)="deleteIllnessPeople()" style="background: #715c69" value="Вылечить"/>-->
+      <!--</td>-->
+    </tr>
+  </table>
+  <div class="sendErr">{{ sendError }}</div>
+</div>

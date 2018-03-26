@@ -1,13 +1,7 @@
 .header{
   font-size: 16pt;
-  color: orange;
+  color: #9a9a9a;
 }
 .content {
-  margin: 5%;
-  padding-top: 1.5%;
-  padding-bottom: 3%;
   background: rgba(0, 0, 0, 0.67);
-  /*margin: 20px;*/
-  min-height: 600px;
-  text-align: center;
 }
