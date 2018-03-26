@@ -10,6 +10,7 @@ import {UserService} from "../user.service";
 })
 export class RaidPageComponent implements OnInit {
 
+  isStudent: any;
   raids: Array<any>;
   isTeacher: any;
 
@@ -19,6 +20,9 @@ export class RaidPageComponent implements OnInit {
     this.getAllRaids();
     this.userService.isTeacher(this.userService.currentUser().name).subscribe(data => {
       this.isTeacher = data;
+    });
+    this.userService.isStudent(this.userService.currentUser().name).subscribe(data =>{
+      this.isStudent = data;
     });
   }
 

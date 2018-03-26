@@ -9,6 +9,7 @@ import {UserService} from '../user.service';
 })
 export class AccountPageComponent implements OnInit {
 
+  isStudent: any;
   login: string;
   userPoints: any;
 
@@ -19,6 +20,9 @@ export class AccountPageComponent implements OnInit {
     this.userService.getPeoplepoints(this.userService.currentUser().name).subscribe(data =>
     {
       this.userPoints = data;
+    });
+    this.userService.isStudent(this.userService.currentUser().name).subscribe(data =>{
+      this.isStudent = data;
     });
   }
   logOut() {

@@ -1,7 +1,7 @@
 <p>
   Название:<input type="text"  [(ngModel)]="name">
   Описание:<input type="text"  [(ngModel)]="description">
-  Время приготовления:<input type="text"  [(ngModel)]="time">
+  Примерное время приготовления:<input type="text"  [(ngModel)]="time">
   <button class="waves-effect waves-light btn" (click)="add()">Добавить</button>
 </p>
 <div *ngIf="!(nonRequest)">

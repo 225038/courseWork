@@ -34,10 +34,14 @@ export class UserService {
   isDoctor(login: string) {
     return this.http.post('http://localhost:8080/isDoctor', login);
   }
+  isStudent(login: string){
+    return this.http.post('http://localhost:8080/isStudent',login);
+  }
   getPeopleHealth(login: string) {
     return this.http.post('http://localhost:8080/getHealth', login);
   }
   getPeoplepoints(login: string){
     return this.http.post('http://localhost:8080/getPersonPoints',login);
   }
+
 }
